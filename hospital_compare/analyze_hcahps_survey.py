@@ -18,10 +18,13 @@ def save_histogram(positive_questions, title, xlabel,filename):
         positive = sum([hcaphs_controller.get_answerpercentage(hospitalnumber, question) for question in positive_questions])
         if not math.isnan(positive):
             positives.append(positive)
+    mean = np.mean(positives)
     hist, bins = np.histogram(positives, bins=15)
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.bar((bins[:-1] + bins[1:]) / 2, hist, align='center', width=(bins[1] - bins[0]), color='#333333', edgecolor='#333333')
+    ax.axvline(mean, color='#FF5C10')
+    ax.text(mean, 10, ' $\mu=%0.1f$' % mean,color='#FF5C10')
     plt.ylabel('# of Hospitals')
     plt.xlabel(xlabel)
     plt.title(title)
@@ -37,6 +40,12 @@ save_histogram(['Percent of patients who reported YES, they would probably recom
                   os.path.join(RESULT_DIR,"recommend.png")
                   )
 
+save_histogram(['Patients who gave their hospital a rating of 9 or 10 on a scale from 0 (lowest) to 10 (highest).', 'Percent of patients who gave their hospital a rating of 7 or 8 on a scale from 0 (lowest) to 10 (highest).'],
+                  'What number would you use to rate this hospital during your stay?\n(0-10, worst-best) ',
+                  'Patients who gave a rating of 7 or higher',
+                  os.path.join(RESULT_DIR,"rating.png")
+                  )
+
 save_histogram(['Patients who reported that their doctors Always" communicated well."', 'Percent of patients who reported that their doctors Usually" communicated well."'],
                   'Did doctors communicated well?',
                   'Patients who answered with \'Always\' or \'Usually\'',
@@ -49,16 +58,10 @@ save_histogram(['Patients who reported that their nurses Always" communicated we
                    os.path.join(RESULT_DIR,"communication_nurses.png")
                    )
 
-save_histogram(['Patients who gave their hospital a rating of 9 or 10 on a scale from 0 (lowest) to 10 (highest).', 'Percent of patients who gave their hospital a rating of 7 or 8 on a scale from 0 (lowest) to 10 (highest).'],
-                  'What number would you use to rate this hospital during your stay?\n(0-10, worst-best) ',
-                  'Patients who gave a rating of 7 or higher',
-                  os.path.join(RESULT_DIR,"rating.png")
-                  )
-
 save_histogram(['Patients who reported that staff Always" explained about medicines before giving it to them."', 'Percent of patients who reported that staff Usually" explained about medicines before giving it to them."'],
                   'Before giving you any new medicine,\nhow often did hospital staff tell you what the medicine was for?',
                   'Patients who answered with \'Always\' or \'Usually\'',
-                  os.path.join(RESULT_DIR,"explained.png")
+                  os.path.join(RESULT_DIR,"medication.png")
                   )
 
 save_histogram(['Percent of patients who reported that they Usually" received help as soon as they wanted."', 'Patients who reported that they Always" received help as soon as they wanted."'],
@@ -88,12 +91,5 @@ save_histogram(['Patients who reported that the area around their room was Alway
 save_histogram(['Patients at each hospital who reported that YES, they were given information about what to do during their recovery at home.'],
                   "Did staff give you information about what to do\n during your recovery at home?",
                   'Patients who answered with \'YES\'',
-                  os.path.join(RESULT_DIR,"information.png")
-                  )
-
-
-save_histogram(['Patients at each hospital who reported that YES, they were given information about what to do during their recovery at home.'],
-                  "Did staff give information about what to do\n during your recovery at home?",
-                  'Patients who answered with \'YES\'',
-                  os.path.join(RESULT_DIR,"information.png")
+                  os.path.join(RESULT_DIR,"recovery.png")
                   )
