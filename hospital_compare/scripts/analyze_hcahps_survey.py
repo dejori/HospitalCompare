@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+"""
+   analyze_hcahps_survey
+   ~~~~~~~~~~~~~~~~~~~~~
+   
+   Visualizes the distribution of positive results for each HCAHPS question as box plots 
+   and saves them into the results folder 
+
+"""
+
+
 import matplotlib.pyplot as plt
 import math
 import os
@@ -9,7 +20,7 @@ from numpy.ma.core import get_data
 hcaphs_controller = HCAHPSController()
 hospital_controller = HospitalInformationController()
 
-RESULT_DIR = os.path.join(os.path.dirname(__file__), "..", 'results') # change this to wherever the results should be saved
+RESULT_DIR = os.path.join(os.path.dirname(__file__), "..", "..", 'results') # change this to wherever the results should be saved
 if not os.path.isdir(RESULT_DIR):
     os.makedirs(RESULT_DIR)
 
@@ -26,7 +37,7 @@ def save_boxplots(positives, xlabels, title,filename):
    
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.boxplot(positives,0,'')
+    ax.boxplot(positives)
     
     plt.title(title)
     plt.ylabel('Percentage of patients who gave a positive answer')
@@ -40,21 +51,17 @@ def save_boxplots(positives, xlabels, title,filename):
     plt.savefig(os.path.join(RESULT_DIR,filename))
 
 
-questions_file = open(os.path.join(os.path.dirname(__file__), '..', 'data','hcahps_questions.json'))
+questions_file = open(os.path.join(os.path.dirname(__file__), '..', "..",'data','hcahps_questions.json'))
 question_groups = json.load(questions_file)
 questions_file.close()
 
 all_answer_data=[]
 all_questions=[]
 for question_category in question_groups.keys():
-    print question_category
     questions = question_groups[question_category];
-    
     answers_data = []
-    
     for question in questions.keys():
         positive_questions = questions.get(question)
-        print "\t"+question +" --> "+ str(positive_questions)
         answers_data.append(get_data(positive_questions))
         
     save_boxplots(answers_data, questions.keys(), question_category, question_category.replace(" ","_")+".png")
