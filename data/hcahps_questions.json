@@ -1,0 +1,53 @@
+{
+    "Overall rating of hospital": {
+        "What number would you use to rate this hospital\nduring your stay? (0-10, worst-best)": [
+            "Patients who gave their hospital a rating of 9 or 10 on a scale from 0 (lowest) to 10 (highest).",
+            "Percent of patients who gave their hospital a rating of 7 or 8 on a scale from 0 (lowest) to 10 (highest)."
+        ],
+        "Would you recommend this hospital\nto your friends and family?": [
+            "Percent of patients who reported YES, they would probably recommend the hospital.",
+            "Patients who reported YES, they would definitely recommend the hospital."
+        ]
+    },
+    "The hospital environment": {
+        "How often was the area around your room\nquiet at night?": [
+            "Patients who reported that the area around their room was Always\" quiet at night.\"",
+            "Percent of patients who reported that the area around their room was Usually\" quiet at night.\""
+        ],
+        "How often were your room\nand bathroom kept clean": [
+            "Percent of patients who reported that their room and bathroom were Usually\" clean.\"",
+            "Patients who reported that their room and bathroom were Always\" clean.\""
+        ]
+    },
+    "When you left the hospital": {
+        "Did staff give you information about\nwhat to do during your recovery at home?": [
+            "Patients at each hospital who reported that YES, they were given information about what to do during their recovery at home."
+        ]
+    },
+    "Your care from doctors": {
+        "Did doctors communicated well?": [
+            "Patients who reported that their doctors Always\" communicated well.\"",
+            "Percent of patients who reported that their doctors Usually\" communicated well.\""
+        ]
+    },
+    "Your care from nurses": {
+        "After you pressed the call button,\nhow often did you get help as soon as\nyou wanted it?": [
+            "Percent of patients who reported that they Usually\" received help as soon as they wanted.\"",
+            "Patients who reported that they Always\" received help as soon as they wanted.\""
+        ],
+        "Did nurses communicated well?": [
+            "Patients who reported that their nurses Always\" communicated well.\"",
+            "Percent of patients who reported that their nurses Usually\" communicated well.\""
+        ]
+    },
+    "Your experience in this hospital": {
+        "Before giving you any new medicine,\nhow often did hospital staff tell you\nwhat the medicine was for?": [
+            "Patients who reported that staff Always\" explained about medicines before giving it to them.\"",
+            "Percent of patients who reported that staff Usually\" explained about medicines before giving it to them.\""
+        ],
+        "How often was your pain well controlled?": [
+            "Percent of patients who reported that their pain was Usually\" well controlled.\"",
+            "Patients who reported that their pain was Always\" well controlled.\""
+        ]
+    }
+}
