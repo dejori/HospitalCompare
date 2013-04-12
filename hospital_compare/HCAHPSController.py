@@ -11,7 +11,7 @@ class HCAHPSController(object):
    
 
     def __init__(self):
-        data_folder = os.path.join(os.path.dirname(__file__), "..", 'data')
+        data_folder = os.path.join(os.path.dirname(__file__), "..", 'data','Hospital_flatfiles')
         self.consumer_perspective_filename = 'HQI_HOSP_HCAHPS_MSR.csv'
         
         with open(os.path.join(data_folder, self.consumer_perspective_filename), 'rb') as csvfile:

@@ -8,7 +8,7 @@ class HospitalInformationController(object):
     
     def __init__(self):
         hospitalinfo_filename = 'HQI_HOSP.csv'
-        data_folder = os.path.join(os.path.dirname(__file__), "..", 'data')
+        data_folder = os.path.join(os.path.dirname(__file__), "..", 'data','Hospital_flatfiles')
         with open(os.path.join(data_folder, hospitalinfo_filename), 'rb') as csvfile:
             reader = csv.DictReader(csvfile)
             self.lines = [line for line in reader]
